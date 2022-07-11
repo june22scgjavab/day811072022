@@ -39,15 +39,15 @@ The points related to static are:-
 * to initialise the static members we use static block.
 * static block is called once when the object gets created or without object creation we tried accessing
   some static member of a class.
-* static variables 
+* static variables cannot be a local varables. 
 -----------------------------------------------------------------------------------------------
 
-public Student(static int counter){  // static as a local variable
+public Student(static int counter){  // static as a local variable not possible
 
 }
 
 public display(){
-static int num=0;    // wrong
+static int num=0;    // wrong as static cannot be local
 
 }
 
@@ -63,7 +63,7 @@ System.out.println(i); //is possible
 }
 
 
-------------------------
+----------------------------------------------------------------------------------------------------------
 
 
 class Customer2 {
@@ -149,4 +149,137 @@ public class Tester2 {
 		System.out.println("Customer Id for the third customer is: " + customer3.getCustomerId());
 	}
 }
+-----------------------------------------------------------------------------------------
+* static is related to class and so it should be access with class but it can be accessed with object class.
 
+class Demo{
+   private int static number;
+ 
+   static{
+       number=10;
+   }
+ 
+  }
+
+
+Demo demo1=new Demo();  
+// Whenever an object is getting created it loads the class
+// and while loading the class static members are coming to existence.
+
+ 
+
+class Demo{
+   private int static number;
+   private int number2;
+   static{
+       number=10;
+       number2=20; // not possible
+   }
+ 
+  }
+
+
+// Because static block is on action before the object is getting created and
+// the instance variables like number2 comes into existence when the object is getting created.
+
+
+class Demo{
+   private int static number;
+   private int number2;
+   static{
+       number=10;
+       number2=20; // not possible
+   }
+   public static void main(String[] args){
+    System.out.println(number); // here both main and number is static
+    System.out.println(number2); // number2 is not coming to existence because we dont have any object created.
+    Demo demo=new Demo();   // number2 is coming to existence
+    System.out.println(demo.number2); // This is possible
+   }
+ 
+  }
+
+
+class Demo {
+   private int static number;
+   private int number2;
+
+   public static void method1(){
+      System.out.println(number); //yes because it is static
+      System.out.println(number2); //no
+      Demo demo=new Demo();
+      demo.number2=100;
+   }
+ 
+   public void method2() {
+    System.out.println(number); // we are able to access
+   //static member within the non static method because non static methods are into works/existence
+   // after the object is created but static already came into existence before method2 during class
+   // loading so that is the reason the non static will be able to access the static member.
+    System.out.println(number2) // will works 
+  }
+ --------------------------------------------------------------------------------------------------------------
+
+
+
+class Demo {
+   private int static number;
+   private int number2;
+
+ 
+   public void method2() {
+    static int j=20; // static cannot be within a method . A member can be a static not a local variable
+  }
+}
+
+
+
+class Demo {
+   private int static number;
+   private int number2;
+
+ 
+   public void method2(static int j) { // static parameter is a local variable so not possible
+     number=20; // static cannot be within a method . A member can be a static not a local variable
+  }
+}
+
+
+
+class Demo {
+   private int static number;
+   private int number2;
+
+ 
+   public void method2(int j) {  // possible
+     number=20;  
+  }
+}
+
+======================================================================================================
+Q Why main method is static?
+
+main method is the entry point of the code.
+
+public class Demo {
+   public void main(String args[])
+   {
+
+   }
+ }
+
+
+  Demo demo=new Demo();
+  demo.main();
+Where we are going to put these two lines?
+
+
+public class Demo {
+   public  static void main(String args[])
+   {
+
+   }
+ }
+
+Demo.main() ===> The call of the main method goes as this.
+-----------------------------------------------------------------------------------------------------
