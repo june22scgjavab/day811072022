@@ -283,3 +283,46 @@ public class Demo {
 
 Demo.main() ===> The call of the main method goes as this.
 -----------------------------------------------------------------------------------------------------
+Aggregation===> HAS-A relationship
+
+-------------------------------------------------------------------------------------------------------
+To set the value we should use constructor or setter method.
+
+Constructors are used once only but setter methods can be called multiple times. So if you thing you want
+to initialise an objects data , which wont change , we can continue with the constructor. But in most of
+the ocassions we have keep on changing the data during the runtime that is the reason setter methods are
+used more. So both the constructor and setter method we write it within the class and depending on our
+requirement we go for using the parameterized constructor to set the value or we can the setter methods
+to set the values for the instance variables.
+--------------------------------------------------------------------------------------------------------------
+
+public class Customer {
+  private int customerId;
+  private String name;
+  private Address address;
+  // parameterized constructor
+  // setters/getters
+
+}
+
+
+public class Address {
+  private int hno;
+  private String locality;
+  private String city;
+   // parameterized constructors
+   // setter getters.
+}
+
+
+public class CustomerAddressMain {
+   public static void main(String args[]){
+    // Initialise both Address and Customer with parameterized constructor
+    // use the getters method to display details of the customer like id,name and address. In address
+    // further it will display hno,locality and city
+   }
+}
+ 
+
+
+
