@@ -320,9 +320,86 @@ public class CustomerAddressMain {
     // Initialise both Address and Customer with parameterized constructor
     // use the getters method to display details of the customer like id,name and address. In address
     // further it will display hno,locality and city
-   }
+      //Class name reference name
+      Address  address=new Address(111,"Netaji Nagar","Delhi");
+      Customer customer=new Customer(1,"Ram",address);
+
+
+  }
 }
  
+-----------------------------------------------------------------------------------------------------------
+
+A Student is having a roll,name,address and the student issues a library book.
+Book is having id,title,authorName. Address is having hno,locality,city.
+---------------------------------------------------------------------------------------------------------------
+public class Student{
+private int rollNo;
+private String name;
+
+ public int getRollNo(){
+   return rollNo;
+ }
+ 
+
+}
+public class Book{
+
+}
+
+public class Address{
+private int hno;
+private String locality;
+private String city;
+}
 
 
+
+public class StudentMain{
+   public static void main(String args[]){
+     Student stud=new Student();
+     System.out.println(stud.rollNo); // rollNo is a private member and unable to access
+     System.out.println(stud.getRollNo());
+     int roll=stud.getRollNo();
+     System.out.println(roll);
+   }
+ }
+----------------------------------------------------------------
+A Student is having a roll,name,address and the student issues a library book.
+Book is having id,title,authorName. Address is having hno,locality,city.
+
+
+public class Student{
+private int rollNo;
+private String name;
+private Address address;
+
+ public int getRollNo(){
+   return rollNo;
+ }
+ 
+
+}
+public class Book{
+private int bookId;
+private String title;
+private String authorName;
+
+}
+
+public class Address{
+private int hno;
+private String locality;
+private String city;
+}
+// How we are going to relate Student with Book. Do you think Book 
+// can be one of the attribute of the Student class. 
+
+------------------------------------------------------------------------------------------
+Aggregation ===> has a relationship
+Association ====> use a relationship
+-------------------------------------------------------------------------------------
+
+
+ 
 

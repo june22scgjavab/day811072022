@@ -13,8 +13,8 @@ public static void main(String[] args) {
 	
 	employee.setId(2);
 	employee.setName("Suresh");
-	
-	
+	System.out.println(dept.getManager().getId());
+	System.out.println(dept.getManager().getName());
 	
 	
 }
