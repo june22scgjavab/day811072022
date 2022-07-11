@@ -395,11 +395,102 @@ private String city;
 // How we are going to relate Student with Book. Do you think Book 
 // can be one of the attribute of the Student class. 
 
-------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 Aggregation ===> has a relationship
 Association ====> use a relationship
--------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+A Person is given a Paper and Pen to write. Person is having age,name and Address. 
+
+public class Paper {
+  private int size;
+  private String paragraph;
+
+}
+
+public class Pen{
+  private int inkColor;
+}
 
 
+
+public class Person {
+  private int age;
+  private String name;
+  private Address address;
+
+  public void personWriting(Pen pen, Paper paper){
+
+  }
+}
+
+
+public class PersonMain{
  
+   public static void main(String args[]){
+
+
+   }
+
+
+
+}
+ 
+Person named Rahul whose age is 20 and with the blue ink he wrote a paragraph as:
+Java is an Object Oriented language. He is learning Java and finding 
+it interesting.
+----------------------------------------------------------------------------------------------------------- 
+Inheritence is a IS-A Relationship
+
+* Employee is a Person
+* Laptop is a Computer
+* CollegeStudent is a Student 
+* SchoolStudent is Student
+
+PremiumCustomer is a Customer
+RegularCustomer is a Customer
+
+
+ public class PremiumCustomer {
+  private int customerId;
+  private String name;
+  private Address address;
+ }
+
+ public class RegularCustomer {
+  private int customerId;
+  private String name;
+  private Address address;
+ }
+
+ }
+
+
+------------------------------------
+public class CustomerDetails {
+	public CustomerDetails() {
+		// 3: Parent constructor will be executed
+		System.out.println("Creating a customer...");
+		// 4: The flow will go back to the child constructor
+	}
+}
+public class RegularCustomer extends CustomerDetails {
+	public RegularCustomer() {
+		// 2: This constructor will then call the parent constructor
+		System.out.println("It is a regular customer!");
+		// 5: The flow will finally come here
+	}
+}
+public class Tester {
+	public static void main(String[] args) {
+		RegularCustomer regularCustomer = new RegularCustomer();
+		// 1: This line will be executed first and the flow will go to [2]
+	}
+}
+
+
+
+
+
+
+
 
